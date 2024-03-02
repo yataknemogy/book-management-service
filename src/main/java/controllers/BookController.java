@@ -26,7 +26,7 @@ public class BookController {
     private BookService bookService;
     private static Logger logger = LoggerFactory.getLogger(BookController.class);
 
-//    МЕТОДЫ
+
 
     @Autowired
     public BookController(BookService bookService) {
@@ -38,19 +38,17 @@ public class BookController {
     }
 
     @PostMapping("/add")
-//    @Operation(summary = "add new book", description = "Add new book in the system")
     public Book addBook(@RequestBody Book book){
         logger.info("Request to add book");
         return bookService.addBook(book);
     }
     @PutMapping("/{id}/update")
-//    @Operation(summary = "update book", description = "Update book in the system")
+
     public Book updateBook(@PathVariable Long id, @RequestBody Book updatedBook) {
         logger.info("Request to update book");
         return bookService.updateBook(id, updatedBook);
     }
     @GetMapping("/{id}")
-//    @Operation(summary = "get book", description = "Get book by id in the system")
     public Optional<Book> getBookById(@PathVariable Integer id) {
         logger.info("Request to get book by id");
         Optional<Book> book = bookService.getBookById(id);
@@ -63,7 +61,6 @@ public class BookController {
         return book;
     }
     @DeleteMapping("/{id}/delete")
-//    @Operation(summary = "delete book", description = "Delete book by id in the system")
     public void deleteBookById(@PathVariable Long id) {
         logger.info("Request to delete book by id") ;
         try {
@@ -86,7 +83,6 @@ public class BookController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-//    Обработки ERROR
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String handleNotFoundException(NotFoundException e) {
