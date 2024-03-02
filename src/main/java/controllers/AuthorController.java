@@ -24,9 +24,6 @@ public class AuthorController {
     private static Logger logger = LoggerFactory.getLogger(BookController.class);
 
 
-//    МЕТОДЫ
-
-
     @Autowired
     public AuthorController(AuthorService authorService) {
         this.authorService = authorService;
@@ -70,8 +67,6 @@ public class AuthorController {
     }
 
 
-
-//    Обработки ERROR
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String handleNotFoundException(NotFoundException e) {
