@@ -1,31 +1,63 @@
-<h1>RESTful сервис для управления книгами</h1>
+# RESTful Service for Book Management
 
----
-***Сущность "Книга" содержит следующие атрибуты:***
+This repository contains a RESTful service for managing books and authors. The project is designed to demonstrate how to build a robust backend application using Spring Boot, JPA, and REST principles.
 
-- ID (уникальный идентификатор)
-- Название
-- Автор
-- Год издания
----
-***Сущность "Автор" содержит следующие атрибуты:***
+## Entities
 
-- ID (уникальный идентификатор)
-- Имя
----
+### Book
 
-***Repository:***
+The "Book" entity contains the following attributes:
+- ID (unique identifier)
+- Title
+- Author
+- Publication Year
 
-- Интерфейс BookRepository, наследующий JpaRepository, для работы с сущностями книги
-- Интерфейс AuthorRepository, наследующий JpaRepository, для работы с сущностями авторами
----
+### Author
 
+The "Author" entity contains the following attributes:
+- ID (unique identifier)
+- Name
 
-***Service:***
-- Cервис BookService, который будет взаимодействовать с репозиторием для выполнения операций CRUD
-- Cервис AuthorService, который будет взаимодействовать с репозиторием для выполнения операций CRUD
----
-***Controller:***
-- Класс BookController с аннотацией @RestController. В Контроллере методы для обработки HTTP-запросов: GET (получение списка книг и получение книги по ID), POST (добавление новой книги), PUT (обновление существующей книги), DELETE (удаление книги по ID)
-- Класс AuthorController с аннотацией @RestController. В Контроллере методы для обработки HTTP-запросов: GET (получение списка авторов и получение автора по ID), POST (добавление нового автора), PUT (обновление существующего автора), DELETE (удаление автора по ID)
----
+## Repository
+
+- `BookRepository` interface, extending `JpaRepository`, for working with book entities
+- `AuthorRepository` interface, extending `JpaRepository`, for working with author entities
+
+## Service
+
+- `BookService` to interact with the repository for performing CRUD operations
+- `AuthorService` to interact with the repository for performing CRUD operations
+
+## Controller
+
+- `BookController` class annotated with `@RestController`. This controller has methods for handling HTTP requests:
+  - GET (retrieve the list of books and get a book by ID)
+  - POST (add a new book)
+  - PUT (update an existing book)
+  - DELETE (delete a book by ID)
+
+- `AuthorController` class annotated with `@RestController`. This controller has methods for handling HTTP requests:
+  - GET (retrieve the list of authors and get an author by ID)
+  - POST (add a new author)
+  - PUT (update an existing author)
+  - DELETE (delete an author by ID)
+
+## Features
+
+- **CRUD Operations**: Create, read, update, and delete books and authors.
+- **RESTful API**: Exposes endpoints to interact with the book and author data.
+- **Spring Boot**: Utilizes Spring Boot framework for easy setup and development.
+
+## Getting Started
+
+### Prerequisites
+
+- Java 8 or higher
+- Maven
+- PostgreSQL (or another database supported by Spring Data JPA)
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yatakknemogy/book-management-service.git
